@@ -9,6 +9,7 @@ function createPlayerElement(id) {
   playerElement.setAttribute('class', 'video-js vjs-default-skin vjs-big-play-centered poc-player')
   playerElement.setAttribute('controls', '')
   playerElement.setAttribute('poster', poster)
+  playerElement.setAttribute('autoplay', true)
 
   return playerElement
 }
