@@ -68,10 +68,10 @@ function createPlayer(id) {
   return player
 }
 
-function setupVideoJs(port) {
+function setupVideoJs(src) {
   const id = `videojs_player_${+new Date()}`
   const playerElement = createPlayerElement(id)
-  const sourceElement = createSourceElement(`http://localhost:${port}/master.m3u8`)
+  const sourceElement = createSourceElement(src)
 
   const formElement = document.querySelector('.player-seed')
   const containerElement = document.querySelector('.player-container');

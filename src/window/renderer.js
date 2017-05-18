@@ -2,9 +2,9 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const {ipcRenderer} = require('electron')
-ipcRenderer.on('seed-port', (event, port) => {
-  console.log('got seed port', port)
-  setupVideoJs(port)
+ipcRenderer.on('seed-src', (event, src) => {
+  // console.log('got seed port', src)
+  setupVideoJs(src)
 })
 
 
@@ -25,7 +25,7 @@ document.querySelector('.player-seed form button').addEventListener('click',
    }
 
    if (loading) {
-     console.log('already loading an key')
+     console.log('already loading a key')
     return
    }
 

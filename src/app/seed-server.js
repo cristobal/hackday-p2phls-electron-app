@@ -49,10 +49,9 @@ function createDrive(folder, key) {
   })
 }
 
-function checkServer(port) {
+function checkSrc(src) {
   return new Promise((resolve) => {
-    const url = `http://localhost:${port}`
-    poll(url, resolve)
+    poll(src, resolve)
   })
 }
 
@@ -76,10 +75,11 @@ async function createServer(key) {
   // TODO: close existing running server
   servers.push(server)
 
-  await checkServer(port)
+  const src = `http://localhost:${port}/master.m3u8`
+  await checkSrc(src)
 
   console.log(`hyperdrive for key: <${key}> running on: <http://localhost:${port}>`)
-  return {server, port}
+  return {server, port, src}
 }
 
 process.on('exit', () => {

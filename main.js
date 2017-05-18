@@ -84,7 +84,7 @@ const {ipcMain}  = electron
 
 ipcMain.on('seed-key', (event, key) => {
   seedServer.createServer(key)
-    .then(({server, port}) => {
-      event.sender.send('seed-port', port)
+    .then(({server, port, src}) => {
+      event.sender.send('seed-src', src)
     })
 })
