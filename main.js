@@ -1,3 +1,7 @@
+//--------------------------------------
+//  Setup Electron App
+//--------------------------------------
+
 const electron = require('electron')
 
 // Module to control application life
@@ -7,7 +11,6 @@ const {app} = electron
 const {BrowserWindow} = electron
 
 // Modules
-const pino = require('pino')()
 const path = require('path')
 const url  = require('url')
 
@@ -16,10 +19,11 @@ const title = 'P2P HLS - Player Poc'
 const backgroundColor = '#262626';
 
 // Log info
-pino.info(`${title}`)
-pino.info(`--- Node ${process.versions.node},`)
-pino.info(`--- Chromium ${process.versions.chrome},`)
-pino.info(`--- Electron ${process.versions.electron}`)
+console.log(`${title}`)
+console.log(`--- Node ${process.versions.node},`)
+console.log(`--- Chromium ${process.versions.chrome},`)
+console.log(`--- Electron ${process.versions.electron}`)
+console.log('')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -28,7 +32,7 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, title, backgroundColor})
-  
+
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -68,4 +72,19 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+
+
+//--------------------------------------
+//  Setup application logic
+//--------------------------------------
+const seedServer = require('./src/app/seed-server')
+const {ipcMain}  = electron
+
+ipcMain.on('seed-key', (event, key) => {
+  seedServer.createServer(key)
+    .then(({server, port}) => {
+      event.sender.send('seed-port', port)
+    })
 })
