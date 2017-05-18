@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>P2P HLS - Player Poc</title>
+    <link rel="stylesheet" href="src/window/libs/videojs/video-js.min.css"></link>
+    <link rel="stylesheet" href="src/window/styles/main.css">
+  </head>
+  <body>
+    <div class="player-container">
+      <video height="480" width="640" id="player" class="video-js vjs-default-skin vjs-big-play-centered poc-player" controls="" poster="http://www.dr.dk/mu-online/api/1.3/bar/52d3f5e66187a2077cbac70e?width=322&height=181">
+        <source src="http://localhost:10000/master.m3u8" type="application/x-mpegURL" />
+      </video>
+    </div>
+  </body>
+  <script>
+    window.HELP_IMPROVE_VIDEOJS = false;
+  </script>
+  <script src="src/window/libs/videojs/video.min.js"></script>
+  <script src="src/window/libs/videojs/videojs-contrib-hls.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // You can also require other files to run in this process
+    require('./src/window/renderer.js')
+  </script>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "hackday-p2phls-electron-app",
+  "version": "1.0.0",
+  "description": "hackday-p2phls-electron-app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristobal/hackday-p2phls-electron-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristobal/hackday-p2phls-electron-app/issues"
+  },
+  "homepage": "https://github.com/cristobal/hackday-p2phls-electron-app#readme",
+  "dependencies": {
+    "electron": "1.6.8",
+    "pino": "4.5.2"
+  }
+}
