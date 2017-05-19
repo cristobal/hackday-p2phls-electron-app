@@ -17,7 +17,8 @@ document.querySelector('.player-seed form button').addEventListener('click',
  (event) => {
    // TODO: add value validator
    // TODO: add spinner indicating loading
-   const {value} = document.querySelector('.player-seed form input')
+   const input   = document.querySelector('.player-seed form input')
+   const {value} = input
 
    if (value.length !== REQUIRED_SEED_LENGTH) {
      alert('Not an valid seed')
@@ -30,4 +31,7 @@ document.querySelector('.player-seed form button').addEventListener('click',
    }
 
    ipcRenderer.send('seed-key', value)
+
+   document.querySelector('.player-seed form').classList.add('hidden')
+   document.querySelector('.ui-spin').classList.remove('hidden')
  })

@@ -3,8 +3,8 @@ function createPlayerElement(id) {
   const playerElement = document.createElement('video')
   const poster = 'http://www.dr.dk/mu-online/api/1.3/bar/52d3f5e66187a2077cbac70e?width=322&height=181'
 
-  playerElement.setAttribute('height', '480')
-  playerElement.setAttribute('width', '640')
+  playerElement.setAttribute('height', '600')
+  playerElement.setAttribute('width', '800')
   playerElement.setAttribute('id', id)
   playerElement.setAttribute('class', 'video-js vjs-default-skin vjs-big-play-centered poc-player')
   playerElement.setAttribute('controls', '')
@@ -71,20 +71,23 @@ function createPlayer(id) {
 
 function setupVideoJs(src) {
   const id = `videojs_player_${+new Date()}`
+  console.log({id, src})
   const playerElement = createPlayerElement(id)
   const sourceElement = createSourceElement(src)
 
-  const formElement = document.querySelector('.player-seed')
-  const containerElement = document.querySelector('.player-container');
+  const formElement      = document.querySelector('.player-seed')
+  const containerElement = document.querySelector('.player-container')
 
   // append source to player
   playerElement.appendChild(sourceElement);
 
   // append video element to html handle.
-  containerElement.appendChild(playerElement);
+  containerElement.appendChild(playerElement)
 
   const player = createPlayer(id)
 
-  formElement.setAttribute('style', 'display: none;')
-  containerElement.setAttribute('style', '')
+  document.querySelector('.ui-spin').classList.add('hidden')
+  formElement.classList.add('hidden')
+  containerElement.classList.remove('hidden')
+
 }
