@@ -28,43 +28,42 @@ function createPlayer(id) {
     nativeControlsForTouch: false
   });
 
-  // var vjsButton = videojs.getComponent('button');
-  const Button = videojs.getComponent('Button');
-
-  // Subclass the component (see 'extend' doc for more info)
-  // list of components to extend http://docs.videojs.com/docs/guides/components.html
-  const hqBtn = videojs.extend(Button, {
-    constructor: function () {
-      Button.apply(this, arguments)
-      this.isHQ = false;
-      /* initialize your button */
-      // Add component specific styling
-      this.addClass('hq-btn')
-      this.el().innerHTML= 'HQ'
-    },
-    handleClick: function () {
-      /* do something on click */
-      // console.log("enable hq", !this.isHQ);
-      // if(this.isHQ) {
-      //   this.removeClass("active");
-      //   this.isHQ = false;
-      //   player.src({type: 'application/x-mpegURL', src: DR2 });
-      //   player.play();
-      // }else{
-      //   this.addClass("active");
-      //   this.isHQ = true;
-      //   player.src({type: 'application/x-mpegURL', src: mSeedPeer });
-      //   player.play()
-      // }
-
-    }
-  });
+  // const Button = videojs.getComponent('button');
+  //
+  // // Subclass the component (see 'extend' doc for more info)
+  // // list of components to extend http://docs.videojs.com/docs/guides/components.html
+  // const hqBtn = videojs.extend(Button, {
+  //   constructor: function () {
+  //     Button.apply(this, arguments)
+  //     this.isHQ = false;
+  //     /* initialize your button */
+  //     // Add component specific styling
+  //     this.addClass('hq-btn')
+  //     this.el().innerHTML= 'HQ'
+  //   },
+  //   handleClick: function () {
+  //     /* do something on click */
+  //     // console.log("enable hq", !this.isHQ);
+  //     // if(this.isHQ) {
+  //     //   this.removeClass("active");
+  //     //   this.isHQ = false;
+  //     //   player.src({type: 'application/x-mpegURL', src: DR2 });
+  //     //   player.play();
+  //     // }else{
+  //     //   this.addClass("active");
+  //     //   this.isHQ = true;
+  //     //   player.src({type: 'application/x-mpegURL', src: mSeedPeer });
+  //     //   player.play()
+  //     // }
+  //
+  //   }
+  // });
 
   // Register the new component with videojs
-  Button.registerComponent('hqBtn', hqBtn);
+  // Button.registerComponent('hqBtn', hqBtn);
 
   // Add the bingmenu component to the player
-  player.getChild('controlBar').addChild('hqBtn');
+  // player.getChild('controlBar').addChild('hqBtn');
 
   return player
 }
