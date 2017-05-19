@@ -70,7 +70,6 @@ function createPlayer(id) {
 
 function setupVideoJs(src) {
   const id = `videojs_player_${+new Date()}`
-  console.log({id, src})
   const playerElement = createPlayerElement(id)
   const sourceElement = createSourceElement(src)
 
